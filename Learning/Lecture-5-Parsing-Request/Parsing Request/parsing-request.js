@@ -40,7 +40,6 @@ const requestHandler = (req, res) => {
       fs.writeFileSync('user.text', JSON.stringify(bodyObject));
     });
 
-
     res.statusCode = 302;
     res.setHeader('Location', '/');
     return res.end();
