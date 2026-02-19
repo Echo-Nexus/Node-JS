@@ -1,10 +1,13 @@
 const http = require('http');
+const {logicalHandler} = require('./logical');
+console.log("run 1");
 
 const server = http.createServer((req, res) => {
-  console.log(req);
+  console.log(req.url, req.method);
+  logicalHandler();
 });
 
-const PORT = 3005;
+const PORT = 3001;
 server.listen(PORT, () => {
   console.log(`Server running in http://localhost:${PORT}`);
 })
