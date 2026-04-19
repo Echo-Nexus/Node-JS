@@ -1,17 +1,193 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Add Home</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ADD HOME</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-color: #FF385C;
+            --primary-hover: #E31C5F;
+            --text-main: #222222;
+            --text-muted: #717171;
+            --bg-color: #f7f7f7;
+            --border-color: #dddddd;
+            --card-shadow: 0 6px 16px rgba(0, 0, 0, 0.12);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--white);
+            color: var(--text-main);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 550px;
+            background: #ffffff;
+            padding: 40px;
+            border: 1px solid var(--border-color);
+            border-radius: 16px;
+            box-shadow: var(--card-shadow);
+        }
+
+        .header {
+            margin-bottom: 32px;
+        }
+
+        .logo-small {
+            color: var(--primary-color);
+            margin-bottom: 16px;
+            display: block;
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            letter-spacing: -0.5px;
+        }
+
+        p.subtitle {
+            color: var(--text-muted);
+            margin-top: 8px;
+            font-size: 0.95rem;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 24px;
+        }
+
+        .form-section {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+        }
+
+        label {
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--text-main);
+        }
+
+        input {
+            width: 100%;
+            padding: 12px 16px;
+            font-size: 1rem;
+            font-family: inherit;
+            border: 1px solid #b0b0b0;
+            border-radius: 8px;
+            transition: all 0.2s ease;
+            outline: none;
+        }
+
+        input:focus {
+            border-color: var(--text-main);
+            box-shadow: 0 0 0 2px rgba(34, 34, 34, 0.1);
+        }
+
+        .price-input-wrapper {
+            position: relative;
+        }
+
+        .price-input-wrapper::before {
+            content: '$';
+            position: absolute;
+            left: 16px;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--text-muted);
+            font-weight: 500;
+        }
+
+        .price-input-wrapper input {
+            padding-left: 32px;
+        }
+
+        button {
+            margin-top: 8px;
+            background-color: var(--primary-color);
+            color: white;
+            border: none;
+            padding: 14px;
+            font-size: 1rem;
+            font-weight: 600;
+            border-radius: 8px;
+            cursor: pointer;
+            transition: background 0.2s ease;
+        }
+
+        button:hover {
+            background-color: var(--primary-hover);
+        }
+
+        .cancel-link {
+            display: block;
+            text-align: center;
+            margin-top: 20px;
+            color: var(--text-main);
+            text-decoration: underline;
+            font-size: 0.875rem;
+            font-weight: 500;
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 24px;
+                border: none;
+                box-shadow: none;
+            }
+        }
+    </style>
 </head>
 <body>
-  <h1> Add Your home</h1>
-    <form action="/host/add-home" method="POST">
-      <input type="text" name="homeName" placeholder="Home Name" required>
-      <input type="text" name="location" placeholder="Location" required>
-      <input type="number" name="price" placeholder="Price per night" required>
-      <button type="submit">Add Home</button>
-    </form>
+    <div class="container">
+        <div class="header">
+            <svg class="logo-small" width="32" height="32" viewBox="0 0 32 32" fill="currentColor">
+                <path d="M16 1c2.008 0 3.463.963 4.751 3.269l.533 1.025c1.954 3.83 6.114 12.54 7.1 14.836l.145.353c.667 1.591.91 2.472.96 3.396l.01.415.001.228c0 4.062-2.877 6.478-6.357 6.478-2.224 0-4.556-1.258-6.709-3.386l-.257-.26-.172-.179h-.011l-.176.185c-2.044 2.1-4.393 3.405-6.701 3.405-3.48 0-6.358-2.416-6.358-6.478 0-1.12.223-2.108.932-3.75l.237-.533c.644-1.423 4.839-10.424 7.14-14.836l.533-1.025C12.537 1.963 13.992 1 16 1z"/>
+            </svg>
+            <h1>Add Your Home</h1>
+            <p class="subtitle">Tell us about your place to get started.</p>
+        </div>
+
+        <form action="/host/add-home" method="POST">
+            <div class="form-section">
+                <label for="homeName">Home Name</label>
+                <input type="text" id="homeName" name="homeName" placeholder="e.g. Cozy Beachside Cottage" required>
+            </div>
+
+            <div class="form-section">
+                <label for="location">Location</label>
+                <input type="text" id="location" name="location" placeholder="e.g. Malibu, California" required>
+            </div>
+
+            <div class="form-section">
+                <label for="price">Price per night</label>
+                <div class="price-input-wrapper">
+                    <input type="number" id="price" name="price" placeholder="0.00" required>
+                </div>
+            </div>
+
+            <button type="submit">List your property</button>
+        </form>
+
+        <a href="#" class="cancel-link" onclick="window.history.back()">Cancel and go back</a>
+    </div>
 </body>
 </html>

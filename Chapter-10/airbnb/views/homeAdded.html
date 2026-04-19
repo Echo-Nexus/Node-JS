@@ -1,12 +1,146 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home ADDED</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HOME ADDED SUCCESSFULLY</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --airbnb-red: #FF385C;
+            --airbnb-hover: #E31C5F;
+            --text-main: #222222;
+            --text-muted: #717171;
+            --success-green: #008489;
+            --bg-color: #ffffff;
+            --border-color: #dddddd;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-main);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100vh;
+            padding: 24px;
+        }
+
+        .success-card {
+            text-align: center;
+            max-width: 480px;
+            width: 100%;
+            padding: 48px 32px;
+            border: 1px solid var(--border-color);
+            border-radius: 24px;
+            box-shadow: 0 12px 24px rgba(0,0,0,0.08);
+            animation: popIn 0.6s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
+        @keyframes popIn {
+            0% { opacity: 0; transform: scale(0.9); }
+            100% { opacity: 1; transform: scale(1); }
+        }
+
+        .icon-container {
+            width: 80px;
+            height: 80px;
+            background-color: #f7f7f7;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 24px;
+            position: relative;
+        }
+
+        .check-icon {
+            color: var(--success-green);
+            width: 40px;
+            height: 40px;
+            stroke-width: 3;
+            animation: checkmark 0.4s ease-in-out 0.3s both;
+        }
+
+        @keyframes checkmark {
+            0% { transform: scale(0); opacity: 0; }
+            100% { transform: scale(1); opacity: 1; }
+        }
+
+        h1 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 12px;
+            letter-spacing: -0.5px;
+        }
+
+        p {
+            color: var(--text-muted);
+            font-size: 1rem;
+            line-height: 1.6;
+            margin-bottom: 32px;
+        }
+
+        .btn-home {
+            display: inline-block;
+            background-color: var(--text-main);
+            color: white;
+            text-decoration: none;
+            padding: 14px 32px;
+            border-radius: 12px;
+            font-weight: 600;
+            transition: all 0.2s ease;
+            width: 100%;
+        }
+
+        .btn-home:hover {
+            background-color: #000000;
+            transform: translateY(-1px);
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+        }
+
+        .btn-home:active {
+            transform: translateY(0);
+        }
+
+        .confetti-dot {
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            opacity: 0;
+        }
+
+        /* Responsive */
+        @media (max-width: 480px) {
+            .success-card {
+                border: none;
+                box-shadow: none;
+                padding: 24px;
+            }
+        }
+    </style>
 </head>
 <body>
-   <h1> Home Added Successfully</h1>
-    <a href="/">Go Back to Home</a>
+    <div class="success-card">
+        <div class="icon-container">
+            <svg class="check-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round">
+                <polyline points="20 6 9 17 4 12"></polyline>
+            </svg>
+        </div>
+        <h1>Home Added Successfully</h1>
+        <p>Your listing is now live! Travelers from around the world can start booking your amazing home.</p>
+        <a href="/" class="btn-home">Go Back to Home</a>
+    </div>
 </body>
 </html>
