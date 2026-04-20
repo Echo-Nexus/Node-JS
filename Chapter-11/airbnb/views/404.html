@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>404 ERROR</title>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --primary-gradient: linear-gradient(135deg, #f43f5e 0%, #fb923c 100%);
+            --text-dark: #0f172a;
+            --text-muted: #64748b;
+            --bg-color: #f8fafc;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Plus Jakarta Sans', sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-dark);
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            position: relative;
+            /* Existing prefixed property */
+            -webkit-background-clip: border-box; /* or your specific value */
+            /* Add standard property for compatibility */
+            background-clip: border-box; /* or your specific value */
+        }
+
+        /* Decorative background elements */
+        body::before {
+            content: '';
+            position: absolute;
+            width: 300px;
+            height: 300px;
+            background: rgba(244, 63, 94, 0.1);
+            filter: blur(80px);
+            border-radius: 50%;
+            top: 10%;
+            left: 10%;
+            z-index: -1;
+        }
+
+        body::after {
+            content: '';
+            position: absolute;
+            width: 400px;
+            height: 400px;
+            background: rgba(251, 146, 60, 0.1);
+            filter: blur(100px);
+            border-radius: 50%;
+            bottom: 5%;
+            right: 5%;
+            z-index: -1;
+        }
+
+        .container {
+            text-align: center;
+            padding: 20px;
+            max-width: 500px;
+            animation: fadeIn 0.8s ease-out;
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        .error-code {
+            font-size: 10rem;
+            font-weight: 800;
+            line-height: 1;
+            margin-bottom: 1rem;
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+            display: inline-block;
+            animation: float 4s ease-in-out infinite;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-20px); }
+        }
+
+        h1 {
+            font-size: 2rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--text-dark);
+        }
+
+        p {
+            font-size: 1.1rem;
+            color: var(--text-muted);
+            margin-bottom: 2.5rem;
+            line-height: 1.6;
+        }
+
+        .btn {
+            display: inline-block;
+            background-color: var(--text-dark);
+            color: white;
+            text-decoration: none;
+            padding: 16px 36px;
+            border-radius: 16px;
+            font-weight: 600;
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:hover {
+            transform: scale(1.05);
+            background-color: #1e293b;
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+
+        .btn:active {
+            transform: scale(0.98);
+        }
+
+        /* Mobile specific adjustments */
+        @media (max-width: 480px) {
+            .error-code { font-size: 7rem; }
+            h1 { font-size: 1.5rem; }
+            p { font-size: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="error-code">404</div>
+        <h1>Page Not Found</h1>
+        <p>The page you are looking for might have been removed, had its name changed, or is temporarily unavailable.</p>
+        <a href="/" class="btn">Back to Homepage</a>
+    </div>
+</body>
+</html>
